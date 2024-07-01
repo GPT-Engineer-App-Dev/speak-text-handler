@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 function SharedLayout() {
   return (
@@ -37,20 +37,41 @@ function SharedLayout() {
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <a href="/" className="flex items-center gap-2 font-semibold">
+            <Link to="/" className="flex items-center gap-2 font-semibold">
               <Package2 className="h-6 w-6" />
-              <span className="">Acme Inc</span>
-            </a>
+              <span className="">Voice Transcript Manager</span>
+            </Link>
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
               >
                 <Home className="h-4 w-4" />
                 Home
-              </a>
+              </Link>
+              <Link
+                to="/upload"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <Package className="h-4 w-4" />
+                Upload Transcripts
+              </Link>
+              <Link
+                to="/view"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <LineChart className="h-4 w-4" />
+                View Transcripts
+              </Link>
+              <Link
+                to="/settings"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <Users className="h-4 w-4" />
+                Settings
+              </Link>
             </nav>
           </div>
         </div>
@@ -70,20 +91,41 @@ function SharedLayout() {
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
               <nav className="grid gap-2 text-lg font-medium">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
                   <Package2 className="h-6 w-6" />
-                  <span className="sr-only">Acme Inc</span>
-                </a>
-                <a
-                  href="#"
+                  <span className="sr-only">Voice Transcript Manager</span>
+                </Link>
+                <Link
+                  to="/"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <Home className="h-5 w-5" />
                   Home
-                </a>
+                </Link>
+                <Link
+                  to="/upload"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <Package className="h-5 w-5" />
+                  Upload Transcripts
+                </Link>
+                <Link
+                  to="/view"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <LineChart className="h-5 w-5" />
+                  View Transcripts
+                </Link>
+                <Link
+                  to="/settings"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <Users className="h-5 w-5" />
+                  Settings
+                </Link>
               </nav>
             </SheetContent>
           </Sheet>
@@ -107,7 +149,7 @@ function SharedLayout() {
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
-        <main className="flex flex-1">
+        <main className="flex flex-1 p-4">
           <Outlet />
         </main>
       </div>
